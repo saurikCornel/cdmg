@@ -55,8 +55,8 @@ REMOTE_URL="{data['remote_url']}"
 PROJECT_NAME="{project_name}"
 SCHEME_NAME="{scheme_name}"
 
-# Создание codemagic.yml
-cat <<EOL > codemagic.yml
+# Создание codemagic.yaml
+cat <<EOL > codemagic.yaml
 workflows:
     ios-workflow:
       name: iOS Workflow
@@ -120,11 +120,11 @@ EOL
 git init
 git checkout -b main
 git add .
-git commit -m "Initial commit with codemagic.yml"
+git commit -m "Initial commit with codemagic.yaml"
 git remote add origin "$REMOTE_URL"
 git push -u origin main
 
-echo "Codemagic.yml created, Git initialized, and pushed."
+echo "Codemagic.yaml created, Git initialized, and pushed."
 """)
     os.chmod(script_path, 0o755)
     return script_filename
