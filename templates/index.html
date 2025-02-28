@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер для Codemagic</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Конвертер для Codemagic</h1>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>ZIP проекта (.zip):</label>
+                <div id="zip-drop" class="drop-zone">Перетащите .zip файл или кликните для выбора</div>
+                <input type="file" id="project-zip" name="project_zip" accept=".zip" style="display:none;" required>
+            </div>
+            <div class="form-group">
+                <label>.p8 файл:</label>
+                <div id="p8-drop" class="drop-zone">Перетащите .p8 файл или кликните для выбора</div>
+                <input type="file" id="p8-file" name="p8_file" accept=".p8" style="display:none;" required>
+            </div>
+            <div class="form-group">
+                <label>Данные для автозаполнения:</label>
+                <textarea id="fill-data" rows="5" placeholder="App Name\nBundle ID\nApple ID\nIssuer ID\nKey ID"></textarea>
+                <button type="button" id="fill-btn">Заполнить</button>
+            </div>
+            <div class="form-group">
+                <label>App Name:</label>
+                <input type="text" name="app_name" required>
+            </div>
+            <div class="form-group">
+                <label>Bundle ID:</label>
+                <input type="text" name="bundle_id" required>
+            </div>
+            <div class="form-group">
+                <label>Apple ID:</label>
+                <input type="text" name="apple_id" required>
+            </div>
+            <div class="form-group">
+                <label>Issuer ID:</label>
+                <input type="text" name="issuer_id" required>
+            </div>
+            <div class="form-group">
+                <label>Key ID:</label>
+                <input type="text" name="key_id" required>
+            </div>
+            <div class="form-group">
+                <label>Remote URL:</label>
+                <input type="text" name="remote_url" required>
+            </div>
+            <button type="submit">Сгенерировать файлы</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
